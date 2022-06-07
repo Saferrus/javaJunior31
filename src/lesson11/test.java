@@ -12,7 +12,7 @@ public class test {
 
         long start1 = System.currentTimeMillis();
         for(int i = 0; i<100000;i++){
-            arrayList.add("sdcsdc" + i);
+            arrayList.add(0,"sdcsdc" + i);
         }
         long end1 = System.currentTimeMillis();
         System.out.println("ArrayList Add:" + (end1 - start1));
@@ -21,7 +21,7 @@ public class test {
 
         long start2 = System.currentTimeMillis();
         for(int i = 0; i<100000;i++){
-            linkedList.add("sdcsdc" + i);
+            linkedList.add(0,"sdcsdc" + i);
         }
         long end2 = System.currentTimeMillis();
         System.out.println("LinkedList Add:" + (end2 - start2));
