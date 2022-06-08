@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="windows-1251">
     <file url="file://$PROJECT_DIR$/src/blackJack/Card.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/blackJack/Koloda.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/blackJack/Main.java" charset="windows-1251" />
@@ -26,6 +26,6 @@
     <file url="file://$PROJECT_DIR$/src/lesson9/Main.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/lesson9/Rectangle.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/lesson9/Triangle.java" charset="windows-1251" />
-    <file url="PROJECT" charset="UTF-8" />
+    <file url="PROJECT" charset="windows-1251" />
   </component>
 </project>

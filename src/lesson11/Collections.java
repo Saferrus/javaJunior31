@@ -5,10 +5,13 @@ import java.util.*;
 public class Collections implements CollectionUtils {
     private Collection<Integer> collection;
 
-    public  Collections () {
+    public Collections() {
 
     }
-    public Collections (Collection<Integer> numbers) { this.collection = numbers; }
+
+    public Collections(Collection<Integer> numbers) {
+        this.collection = numbers;
+    }
 
     @Override
     public Collection<Integer> union(Collection<Integer> a, Collection<Integer> b) throws NullPointerException {
@@ -22,21 +25,29 @@ public class Collections implements CollectionUtils {
     @Override
     public Collection<Integer> intersection(Collection<Integer> a, Collection<Integer> b) throws NullPointerException {
         LinkedList<Integer> res = new LinkedList<>();
+        HashSet<Integer> c = new HashSet<>();
+        c.addAll(a);
+        c.removeAll(b);
+        a.removeAll(c);
 
-        for (int i =0; i<a.toArray().length;i++){
-            for (int j=0;j<b.toArray().length;j++){
-                if(a.toArray()[i]==b.toArray()[j]){
-                    res.add((Integer) b.toArray()[j]);
-                }
-            }
-        }
-        res.addAll(res);
+        c.clear();
+        c.addAll(b);
+        c.removeAll(a);
+        b.removeAll(c);
+
+
+        res.addAll(a);
+        res.addAll(b);
         return res;
+
     }
 
     @Override
     public Set<Integer> unionWithoutDuplicate(Collection<Integer> a, Collection<Integer> b) throws NullPointerException {
-        return null;
+        LinkedHashSet<Integer> res = new LinkedHashSet<>();
+        res.addAll(a);
+        res.addAll(b);
+        return res;
     }
 
     @Override

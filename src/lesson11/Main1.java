@@ -21,7 +21,7 @@ public class Main1 {
 
         Collections result = new Collections();
 
-        System.out.println(result.intersection(first,second));
+        System.out.println(result.unionWithoutDuplicate(first,second));
 
 
 
