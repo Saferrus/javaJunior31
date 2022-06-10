@@ -17,6 +17,8 @@ public class Main {
         coins.add(coin3);
         coins.add(coin4);
 
+
+
 //        for(Coin c:coins){
 //            System.out.println(c);
 //        }

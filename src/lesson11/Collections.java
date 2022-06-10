@@ -3,14 +3,9 @@ package lesson11;
 import java.util.*;
 
 public class Collections implements CollectionUtils {
-    private Collection<Integer> collection;
 
     public Collections() {
 
-    }
-
-    public Collections(Collection<Integer> numbers) {
-        this.collection = numbers;
     }
 
     @Override
@@ -52,11 +47,28 @@ public class Collections implements CollectionUtils {
 
     @Override
     public Set<Integer> intersectionWithoutDuplicate(Collection<Integer> a, Collection<Integer> b) throws NullPointerException {
-        return null;
+        LinkedHashSet<Integer> res = new LinkedHashSet<>();
+
+        for (Iterator<Integer> iter1 = a.iterator(); iter1.hasNext(); ) {
+            int numbersA = iter1.next();
+            for (Iterator<Integer> iter2 = b.iterator(); iter2.hasNext(); ) {
+                int numbersB = iter2.next();
+                if (numbersA == numbersB) {
+                    res.add(numbersA);
+                }
+            }
+        }
+        return res;
     }
 
     @Override
     public Collection<Integer> difference(Collection<Integer> a, Collection<Integer> b) throws NullPointerException {
-        return null;
+       LinkedHashSet<Integer> res = new LinkedHashSet<>();
+
+       res.addAll(a);
+       res.removeAll(b);
+       b.removeAll(a);
+       res.addAll(b);
+       return res;
     }
 }

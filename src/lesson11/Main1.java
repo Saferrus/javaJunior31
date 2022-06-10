@@ -19,9 +19,10 @@ public class Main1 {
         second.add(6);
         second.add(7);
 
+
         Collections result = new Collections();
 
-        System.out.println(result.unionWithoutDuplicate(first,second));
+        System.out.println(result.difference(first,second));
 
 
 
