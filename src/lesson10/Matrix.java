@@ -1,5 +1,7 @@
 package lesson10;
 
+import javax.print.attribute.standard.MediaSize;
+
 public class Matrix implements IMatrix {
     private double[][] numbers;
 
@@ -51,13 +53,17 @@ public class Matrix implements IMatrix {
 
     @Override
     public Matrix add(IMatrix otherMatrix) throws IllegalArgumentException, NullPointerException {
+
+        if(otherMatrix == null){
+            throw new NullPointerException("otherMatrix == null");
+        }
+
+
         if (otherMatrix.getRows() != this.getRows()) {
-            System.out.println("Строки матриц не совпадают");
-            return null;
+            throw new IllegalArgumentException("Строки матриц не совпадают");
         }
         if (otherMatrix.getColumns() != this.getColumns()) {
-            System.out.println("Колонки матриц не совпадают");
-            return null;
+            throw new IllegalArgumentException("Колонки матриц не совпадают");
         }
         Matrix result = new Matrix(this.getRows(), this.getColumns());
         for (int i = 0; i < result.getRows(); i++) {
