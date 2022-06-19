@@ -27,12 +27,29 @@ public class StringUtilsImple implements StringUtils {
             throw new ArithmeticException("На ноль делит нельзя");
         }
 
-        return num1/num2 ;
+        return num1 / num2;
     }
 
     @Override
     public int[] findWord(String text, String word) throws NullPointerException {
-        return new int[0];
+        if (text == null || word == null) {
+            throw new NullPointerException("text == null || word ==null");
+        }
+        String[] words = text.split("\\p{P}?[ \\t\\n\\r]+");
+        ArrayList<Integer> resultList = new ArrayList<>();
+
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].toLowerCase().contains(word.toLowerCase())) {
+                resultList.add(i);
+            }
+        }
+        int[] result = new int[resultList.size()];
+        for (int i = 0; i < resultList.size(); i++) {
+            result[i] = resultList.get(i);
+        }
+
+
+        return result;
     }
 
     @Override
@@ -41,14 +58,14 @@ public class StringUtilsImple implements StringUtils {
         Matcher m = pattern.matcher(text);
 
         ArrayList<Double> doubls = new ArrayList<>();
-        while (m.find()){
+        while (m.find()) {
             doubls.add(Double.parseDouble(m.group()));
         }
-        if(doubls.size()==0){
+        if (doubls.size() == 0) {
             throw new CustomException("Чисел в тексте нет");
         }
         double[] result = new double[doubls.size()];
-        for(int i = 0; i<doubls.size(); i++){
+        for (int i = 0; i < doubls.size(); i++) {
             result[i] = doubls.get(i);
         }
 

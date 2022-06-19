@@ -1,5 +1,7 @@
 package lesson12;
 
+import lesson14.StringUtilsImple;
+
 import java.util.*;
 
 public class HomeWorkTest {
@@ -47,6 +49,17 @@ public class HomeWorkTest {
         System.out.println("______________________________________");
         SetUtilsClass res2 = new SetUtilsClass();
         System.out.println(res2.customOrderSet(10,2,7,1,9));
+
+        System.out.println("---------------------------------------------------------");
+
+        String text = "ûגעדנû, Word,/./ hsdc word   hellu  nkjword/.how ,,,exxelent.word,' &WOrd.,>";
+        StringUtilsImple stringUtilsImple = new StringUtilsImple();
+        int [] result = stringUtilsImple.findWord(text,"word");
+        for(int i = 0; i<result.length; i++){
+            System.out.println(result[i]);
+        }
+
+
 
 
     }

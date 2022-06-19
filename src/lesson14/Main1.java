@@ -5,7 +5,7 @@ public class Main1 {
         Person person = new Person();
 
         try {
-            person.setAge(149);
+            person.setAge(151);
             System.out.println("Метод выполнен успешно");
         } catch (UncurrentAgeException e) {
             e.printStackTrace();

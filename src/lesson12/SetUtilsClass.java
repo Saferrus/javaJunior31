@@ -13,12 +13,12 @@ public class SetUtilsClass implements SetUtils {
         String s = String.valueOf(numbers);
         res.add(s);
         res.addAll(set2);
-        TreeSet <String> treereverse = new TreeSet<String>();
+        TreeSet <String> treeReverse = new TreeSet<String>();
 
-        treereverse = (TreeSet)res.descendingSet();
+        treeReverse = (TreeSet<String>) res.descendingSet();
 
 
-        return treereverse;
+        return treeReverse;
     }
 
     @Override

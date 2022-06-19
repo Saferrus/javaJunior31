@@ -26,27 +26,24 @@ public class Matrix implements IMatrix {
 
     @Override
     public double getValueAt(int rowIndex, int colIndex) throws IndexOutOfBoundsException {
+
         if (rowIndex < 0 || rowIndex >= getRows()) {
-            System.out.println("Неверный индекс строки!!! " + rowIndex);
-            return 0;
+            throw new IndexOutOfBoundsException("Неверный индекс строки!!! " + rowIndex);
         }
         if (colIndex < 0 || colIndex >= getColumns()) {
-            System.out.println("Неверный индекс строки!!! " + colIndex);
-            return 0;
+            throw new IndexOutOfBoundsException("Неверный индекс столбца!!! " + colIndex);
         }
         return numbers[rowIndex][colIndex];
     }
 
     @Override
     public void setValueAt(int rowIndex, int colIndex, double value) throws IndexOutOfBoundsException {
+
         if (rowIndex < 0 || rowIndex >= getRows()) {
-            System.out.println("Неверный индекс строки!!! " + rowIndex);
-            return;
+            throw new IndexOutOfBoundsException("Неверный индекс строки!!! " + rowIndex);
         }
         if (colIndex < 0 || colIndex >= getColumns()) {
-            System.out.println("Неверный индекс строки!!! " + colIndex);
-            return;
-
+            throw new IndexOutOfBoundsException("Неверный индекс столбца!!! " + colIndex);
         }
         numbers[rowIndex][colIndex] = value;
     }
@@ -77,13 +74,16 @@ public class Matrix implements IMatrix {
 
     @Override
     public Matrix sub(IMatrix otherMatrix) throws IllegalArgumentException, NullPointerException {
+
+
         if (otherMatrix.getRows() != this.getRows()) {
-            System.out.println("Строки матриц не совпадают");
-            return null;
+            throw new IllegalArgumentException("Строки матриц не совпадают");
         }
         if (otherMatrix.getColumns() != this.getColumns()) {
-            System.out.println("Колонки матриц не совпадают");
-            return null;
+            throw new IllegalArgumentException("Колонки матриц не совпадают");
+        }
+        if(otherMatrix == null){
+            throw new NullPointerException("otherMatrix == null");
         }
         Matrix result = new Matrix(this.getRows(), this.getColumns());
         for (int i = 0; i < result.getRows(); i++) {
@@ -96,14 +96,15 @@ public class Matrix implements IMatrix {
 
     @Override
     public Matrix mul(IMatrix otherMatrix) throws IllegalArgumentException, NullPointerException {
-        if (otherMatrix.getRows() != this.getRows()) {
-            System.out.println("Строки матриц не совпадают");
-            return null;
+
+        if(otherMatrix == null){
+            throw new NullPointerException("otherMatrix == null");
         }
-        if (otherMatrix.getColumns() != this.getColumns()) {
-            System.out.println("Колонки матриц не совпадают");
-            return null;
+
+        if (otherMatrix.getColumns() != this.getRows()) {
+            throw new IllegalArgumentException("Матрицы не совместимы");
         }
+
         Matrix result = new Matrix(this.getRows(), this.getColumns());
         for (int i = 0; i < this.getRows(); i++) {
             for (int j = 0; j < otherMatrix.getColumns(); j++) {
